@@ -26,8 +26,8 @@
           <li><a href="./fornecedor_listar.php">Fornecedor</a></li>
           <li><a href="./funcionario_listar.php">Funcionário</a></li>
           <li><a href="./grupo_usuario_listar.php">Grupo de Usuário</a></li>
-		  <li><a href="./medicamentos_listar.php">Medicamentos</a></li>
-		   <li><a href="./permissao_cadastrar.php">Permissão</a></li>
+		  <!--<li><a href="./medicamentos_listar.php">Medicamentos</a></li>-->
+		   <!--<li><a href="./permissao_cadastrar.php">Permissão</a></li>-->
           <li><a href="./produtos_listar.php">Produto</a></li>
 		  
 		   <!--<li><a href="./profissional_listar.php">Profissional</a></li>-->

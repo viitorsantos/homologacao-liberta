@@ -2,21 +2,21 @@
     define('RAIZ', "./");
     define('TITLE_ADMIN', "");
   
-    define("LOGO", "images/Logo.jpg");
-    define("LOGO_FAVICON", "Logo.jpg");
+    define("LOGO", "images/Logo.png");
+    define("LOGO_FAVICON", "Logo.png");
 	
 	define("VALOR_CONSULTA", "300.00");
-	define("ENDERECO", "R. São Luis, 201 Sala 9");
-	define("TELEFONE", "(14) 3492-1497/ (14) 3492-3863");
+	define("ENDERECO", "R. São Tomé, 592");
+	define("TELEFONE", "(14) 99828-1126");
 
     date_default_timezone_set('America/Sao_Paulo');
 
-    $valorinicio = "09:10";
-    $valorfim = "18:20";
-    $valorsoma = "00:50";
+    $valorinicio = "08:00";
+    $valorfim = "18:00";
+    $valorsoma = "01:00";
 	
 	//clinica que trabalha com horarios fixos
-	$horarios = array("09:10", "10:00", "10:50", "11:40", "12:30","13:20", "14:00", "14:50","15:40", "16:00", "16:30", "17:00", "17:20", "18:10");
+	$horarios = array("08:00", "09:00", "10:00", "11:00", "12:00","13:00", "14:00", "15:00","16:00", "17:00", "18:00");
 	
 	$_agenda_fitra_por = "Psiquiatra";
 

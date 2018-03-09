@@ -16,16 +16,18 @@
 			$_funcionario_id  	= pg_fetch_result($res, 0, 'funcionario');
 			$_empresa_id  		= pg_fetch_result($res, 0, 'empresa_id');
 			$_administrador 	= true;
-			define("EMPRESA", "$_empresa_id");
+			define("EMPRESA", "3");
 			define("GRUPO", "$_grupo_usuario_id");
 
 			$hash = md5($login."sistemasclinicaETECINFO");
 		}
+		
 		if($hash != $_SESSION["hash"]){
 			header('Location: index.php');
 		}
-	}else{
+		}else{
 		header('Location: index.php');
-	}
+		}
+	
 
 ?>

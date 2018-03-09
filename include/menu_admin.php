@@ -48,7 +48,7 @@
         </h4>
       </div>
     </div>
-	 <div class="panel">
+	 <!--<div class="panel">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion">
@@ -57,7 +57,7 @@
         </h4>
       </div>
     </div>
-    <!--<div class="panel">
+    <div class="panel">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
