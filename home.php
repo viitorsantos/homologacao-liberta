@@ -133,7 +133,7 @@ $res_agendamento = pg_query($con, $sql_agendamento);
                     </div>
                     <div class="col-md-10 corpo  col-sm-12" >
                         <div class="page-header">
-                            <div class=" col-md-10 titulo_tela" >Home</div>
+                            <div class=" col-md-10 titulo_tela" >Homee</div>
                             <div class="col-md-2 link_tela">
                                 <!--<a href="cliente_listar.php" class="btn btn-info btn-sm"><i class="fa fa-list-alt"></i>Lista</a>-->
                             </div>
