@@ -136,18 +136,19 @@
                     <div class="col-md-10 corpo" >
                         <div class="page-header">
                             <div class=" col-md-7 titulo_tela" >Ficha Médica</div>
-							<div class="col-md-1 link_tela">
+							<!--<div class="col-md-1 link_tela">
                                 <a href="admissao_listar.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Admissão</a>       
-                            </div>
+                            </div>-->
                             <div class="col-md-1 link_tela">
                                 <a href="atestado_listar.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Atestado</a>       
                             </div>
                             <div class="col-md-1 link_tela">
                                 <a href="receitas_listar.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Declaração</a>        
                             </div>
+							<!--
 							<div class="col-md-1 link_tela">
                                 <a href="medicamento_quantidade.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Prescrição</a>       
-                            </div>
+                            </div>-->
                         </div>
                         <?php if (strlen(trim($erro)) > 0): ?>
                             <div class="alert alert-danger">

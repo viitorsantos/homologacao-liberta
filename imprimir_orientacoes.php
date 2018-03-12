@@ -147,7 +147,7 @@
 	<div id="interface">
 		<header id="cabecalho">
 			<figure><img src="<?php echo LOGO ?>" id="logo"></figure>
-			<p id="cabecalho_direita"><?php echo ENDERECO ?> <br> Marília - SP</p>
+			<p id="cabecalho_direita"><?php echo ENDERECO ?> <br> Lençóis Paulista - SP</p>
 			<p id="cabecalho_esquerda"><span id="cabecalho"><?php echo $nome_funcionario;?></span><br>
 			Telefones: <?php echo TELEFONE ?></p>
 				
