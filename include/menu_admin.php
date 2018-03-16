@@ -25,7 +25,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion">
-                  <a href="cliente_pesquisa.php">Cliente</span></a>
+                  <a href="cliente_pesquisa.php">Paciente</span></a>
           </a>
         </h4>
       </div>
@@ -43,7 +43,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion">
-                  <a href="pesquisa_status.php">Relatório Clientes</span></a>
+                  <a href="pesquisa_status.php">Relatório Pacientes</span></a>
           </a>
         </h4>
       </div>

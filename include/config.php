@@ -7,7 +7,7 @@
 	
 	define("VALOR_CONSULTA", "300.00");
 	define("ENDERECO", "R. São Tomé, 592");
-	define("TELEFONE", "(14) 99828-1126");
+	define("TELEFONE", "(14) 99828-1218");
 
     date_default_timezone_set('America/Sao_Paulo');
 
