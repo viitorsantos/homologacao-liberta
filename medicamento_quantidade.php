@@ -15,8 +15,11 @@
 		$paciente_id              =   fncTrataDados($_POST["paciente"]);
         $medicamento_id           =   fncTrataDados($_POST["medicamento_id"]);
         $medicamento_paciente     =   fncTrataDados($_POST["medicamento_paciente"]);
-        $qtde                     =   fncTrataDados($_POST["qtde"]);      
-
+        $qtde                     =   fncTrataDados($_POST["qtde"]);
+		$mes                      =   fncTrataDados($_POST["mes"]);
+		$ano                      =   fncTrataDados($_POST["ano"]);
+	    $horario                  =   fncTrataDados($_POST["horario"]);
+				  
 
         if(strlen(trim($qtde)) == 0){
             $erro .= "O campo Quantidade deve ser preenchido. <br>";
@@ -25,14 +28,21 @@
 		if(strlen(trim($medicamento_id)) == 0){
             $erro .= "O campo Medicamento deve ser preenchido. <br>";
         }
+		if(strlen(trim($mes)) == 0){
+            $erro .= "O campo Mes deve ser preenchido. <br>";
+        }
+		if(strlen(trim($ano)) == 0){
+            $erro .= "O campo Ano deve ser preenchido. <br>";
+        }
 		
 
         if(empty($erro)){
             if($medicamento_paciente == 0){
-                $sql = "INSERT INTO tbl_medicamento_paciente (paciente_id, medicamento_id, qtde)  
-                VALUES ($paciente_id, '$medicamento_id', '$qtde') returning medicamento_paciente";
+                $sql = "INSERT INTO tbl_medicamento_paciente (paciente_id, medicamento_id, qtde, mes, ano, horario)  
+                VALUES ($paciente_id, '$medicamento_id', '$qtde', '$mes', '$ano', '$horario') returning medicamento_paciente";
             }else{
-                $sql = "UPDATE tbl_medicamento_paciente SET paciente_id = '$paciente_id', medicamento_id = '$medicamento_id',   qtde = '$qtde'
+                $sql = "UPDATE tbl_medicamento_paciente SET paciente_id = '$paciente_id', medicamento_id = '$medicamento_id', qtde = '$qtde',
+				mes = '$mes', ano = '$ano', horario = '$horario'
                 WHERE medicamento_paciente = $medicamento_paciente returning medicamento_paciente";
             }
             
@@ -61,7 +71,7 @@
 	
 	if(isset($_GET['medicamento_paciente'])){
         $medicamento_paciente = (int)$_GET['medicamento_paciente'];
-		$sql_med_paciente = "select medicamento_paciente, paciente_id, medicamento_id, qtde from tbl_medicamento_paciente
+		$sql_med_paciente = "select medicamento_paciente, paciente_id, medicamento_id, qtde, mes, ano, horario from tbl_medicamento_paciente
 		where medicamento_paciente=$medicamento_paciente";
 		//echo $sql_med_paciente;
 		$res_med_paciente = pg_query($con, $sql_med_paciente);
@@ -70,9 +80,12 @@
 			$paciente_id          = pg_fetch_result($res_med_paciente, 0, 'paciente_id');
 			$medicamento_id       = pg_fetch_result($res_med_paciente, 0, 'medicamento_id');
 			$qtde                 = pg_fetch_result($res_med_paciente, 0, 'qtde');
+			$mes                  = pg_fetch_result($res_med_paciente, 0, 'mes');
+			$ano                  = pg_fetch_result($res_med_paciente, 0, 'ano');
+			$horario              = pg_fetch_result($res_med_paciente, 0, 'horario');
+			
 		}
     }
-
 	
 ?>
 <!DOCTYPE html>
@@ -176,17 +189,41 @@
 										<a href="medicamento_quantidade.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Novo Medicamento</a>       
 									</div>
 								</div>
-								
+								<br>
                                 <form method="POST" action="">
 									
                                     <div class="row"> 
-                                        <div class="col-md-offset-4 col-md-2">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Quantidade</label>
-                                                 <input type="text" name="qtde" value="<?php echo $qtde ?>" maxlength="2"  class="form-control" id="exampleInputEmail1">
-                                            </div>
-                                        </div>
-										 <div class="col-md-3">
+										<div class="col-md-offset-1 col-md-2">
+											<div class="form-group">
+												 <label for="exampleInputEmail1">Mês</label>
+												 <select name="mes" class="form-control">
+													<option value="">Mês</option>
+													<option value="01" <?php if($mes == "01"){ echo " selected ";} ?>>Janeiro</option>
+													<option value="02" <?php if($mes == "02"){ echo " selected ";} ?>>Fevereiro</option>
+													<option value="03" <?php if($mes == "03"){ echo " selected ";} ?>>Março</option>
+													<option value="04" <?php if($mes == "04"){ echo " selected ";} ?>>Abril</option>
+													<option value="05" <?php if($mes == "05"){ echo " selected ";} ?>>Maio</option>
+													<option value="06" <?php if($mes == "06"){ echo " selected ";} ?>>Junho</option>
+													<option value="07" <?php if($mes == "07"){ echo " selected ";} ?>>Julho</option>
+													<option value="08" <?php if($mes == "08"){ echo " selected ";} ?>>Agosto</option>
+													<option value="09" <?php if($mes == "09"){ echo " selected ";} ?>>Setembro</option>
+													<option value="10" <?php if($mes == "10"){ echo " selected ";} ?>>Outubro</option>
+													<option value="11" <?php if($mes == "11"){ echo " selected ";} ?>>Novembro</option>
+													<option value="12" <?php if($mes == "12"){ echo " selected ";} ?>>Dezembro</option>
+												 </select>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												 <label for="exampleInputEmail1">Ano</label>
+												 <select name="ano" class="form-control">
+													<option value="">Ano</option>
+													<option value="2018" <?php if($ano == "2018"){ echo " selected ";}?>>2018</option>
+													<option value="2019" <?php if($ano == "2019"){ echo " selected ";}?>>2019</option>
+												 </select>
+											</div>
+										</div>
+										<div class="col-md-3">
 													<div class="form-group">
 														<label  for="exampleInputEmail1">Medicamento</label>
 														<select name="medicamento_id" class="form-control">
@@ -208,7 +245,19 @@
 															?>
 														</select>
 													</div>
-												</div>
+										</div>
+										<div class="col-md-1">
+											<div class="form-group">
+												<label  for="exampleInputEmail1">Horário</label>
+												<input type="text" name="horario" id="horario" value="<?=$horario?>" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Quantidade</label>
+                                                 <input type="text" name="qtde" value="<?php echo $qtde ?>" maxlength="2"  class="form-control" id="exampleInputEmail1">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 botao">
@@ -227,13 +276,15 @@
                                         <div class="col-md-12 botao">
                                             <table class="table table-hover">
                                                 <tr>
-													<th class="col-md-4">Paciente</th>
+													<th class="col-md-3">Paciente</th>
+													<th class="col-md-2">Mês-Ano-Horario</th>
                                                     <th class="col-md-3">Medicamento</th>
                                                     <th class="col-md-3">Quantidade</th>
 													<th class="col-md-1">Ações</th>
                                                 </tr>
                                                 <?php 
-                                                    $sql_medicamento_paciente = "SELECT medicamento_paciente, paciente_id, medicamento_id, qtde, tbl_medicamento.descricao as medicamento FROM tbl_medicamento_paciente 
+                                                    $sql_medicamento_paciente = "SELECT medicamento_paciente, paciente_id, medicamento_id, qtde, mes, ano, horario,
+													tbl_medicamento.descricao as medicamento FROM tbl_medicamento_paciente 
 													INNER JOIN tbl_medicamento ON tbl_medicamento.medicamento = tbl_medicamento_paciente.medicamento_id
 													WHERE paciente_id= $paciente_id order by medicamento_paciente desc";
 													//echo $sql_medicamento_paciente;
@@ -244,9 +295,13 @@
 															$paciente_id          = pg_fetch_result($res_medicamento_paciente, $i, 'paciente_id');
 															$medicamento          = pg_fetch_result($res_medicamento_paciente, $i, 'medicamento');
 															$qtde                 = pg_fetch_result($res_medicamento_paciente, $i, 'qtde');
+															$mes                  = pg_fetch_result($res_medicamento_paciente, $i, 'mes');
+															$ano                  = pg_fetch_result($res_medicamento_paciente, $i, 'ano');
+															$horario              = pg_fetch_result($res_medicamento_paciente, $i, 'horario');
                                                      
                                                             echo "<tr>";
 																echo "<td align='left'>$nome</td>";
+																echo "<td align='left'>$mes - $ano - $horario</td>";
                                                                 echo "<td align='left'>$medicamento </td>";
                                                                 echo "<td align='left'>$qtde</td>";
 																echo "<td align='left'><a href='./medicamento_quantidade.php?paciente=$paciente_id&medicamento_paciente=$medicamento_paciente' title='Editar'><i class='fa fa-pencil-square-o'></i></a></td>";

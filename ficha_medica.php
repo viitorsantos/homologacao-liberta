@@ -145,10 +145,10 @@
                             <div class="col-md-1 link_tela">
                                 <a href="receitas_listar.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Declaração</a>        
                             </div>
-							<!--
+							
 							<div class="col-md-1 link_tela">
                                 <a href="medicamento_quantidade.php?paciente=<?php echo $paciente_id?>" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Prescrição</a>       
-                            </div>-->
+                            </div>
                         </div>
                         <?php if (strlen(trim($erro)) > 0): ?>
                             <div class="alert alert-danger">

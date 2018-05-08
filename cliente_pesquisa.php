@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-md-10 corpo">
                         <div class="page-header">                            
-                            <div class=" col-md-8 titulo_tela" >Pesquisa de Cliente</div>
+                            <div class=" col-md-8 titulo_tela" >Pesquisa de Paciente</div>
 							<div class="col-md-2 link_tela">
                                 <a href="listar_residentes.php" class="btn btn-success btn-sm"><i class="fa fa-list-alt"></i>Residentes</a>        
                             </div>
@@ -172,7 +172,7 @@
                                  <div class='row'>
                                     <div class="col-md-8">                                        
                                         <div class="form-group">
-                                            <label>Nome do Cliente</label>
+                                            <label>Nome do Paciente</label>
                                             <input type="text" name="nome_cliente" id="nome_cliente" maxlength="30" class="form-control" value="<?php echo $nome_cliente?>">
                                         </div>
                                     </div>
